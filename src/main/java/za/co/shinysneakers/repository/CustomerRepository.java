@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import za.co.shinysneakers.domain.Customer;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -12,9 +13,13 @@ public interface CustomerRepository extends JpaRepository<Customer, String> {
     // For example, to find a customer by email:
     Optional<Customer> findByEmail(String email);
 
-    Optional<Customer> findByMobile(String mobile);
+    Customer findByMobile(String mobile);
 
     Customer findByFirstName(String firstName);
+
+    List<Customer> findByFirstNameAndLastName(String firstName, String lastName);
+
+    List<Customer> findByLastName(String lastName);
 
 
 }

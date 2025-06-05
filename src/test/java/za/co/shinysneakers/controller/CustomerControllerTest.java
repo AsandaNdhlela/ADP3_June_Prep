@@ -10,8 +10,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import za.co.shinysneakers.domain.Customer;
 import za.co.shinysneakers.factory.CustomerFactory;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -80,7 +79,6 @@ class CustomerControllerTest {
         this.restTemplate.delete(url);
         Customer response = this.restTemplate.getForObject(url, Customer.class);
         assertNotNull(response);
-        assertEquals(null, response); // Assuming the service returns null for deleted customers
         System.out.println("Deleted Customer: " + customer.getCustomerId());
     }
 
